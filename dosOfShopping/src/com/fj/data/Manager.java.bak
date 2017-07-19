@@ -7,6 +7,6 @@ package com.fj.data;
  */
 public class Manager {
 	public static int loginNum = 0;
-	 public String username = "admin";   
+	 public String username = "admin";    //管理员名字
      public String password = "1234";   
 }
