@@ -10,7 +10,7 @@ import com.fj.data.*;
 public class CustService {
 	
 	public static Scanner scanner = new Scanner(System.in);
-	// 显示客户信息
+	// 显示客户信息sa
 	public void showCust(){
 		System.out.println("杰氏购物管理系统>客户管理信息>显示客户信息");
 		System.out.println("会员号\t生日\t积分");

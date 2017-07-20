@@ -16,19 +16,7 @@ public class CustService {
 		System.out.println("会员号\t生日\t积分");
 		System.out.println("-------|-------|-------");
 		//显示所有的客户
-		for(int i=0;i<Data.customers.length;i++){
-			if(Data.customers[i].custBirth==null){
-				System.out.print("回车键继续......");
-				scanner.nextLine();
-				Menu.nextMenu();
-				return;
-			}else{
-				System.out.println(Data.customers[i].custNo+"   "+
-						Data.customers[i].custBirth+"   "+
-						Data.customers[i].custScore+"   ");
-			}
-			
-		}
+		
 		
 	}
 	
