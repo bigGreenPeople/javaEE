@@ -1,0 +1,8 @@
+classPath = com.fj.reflect.Dog
+method = cry
+
+parameterType = java.lang.String
+parameterVar = fujie
+
+parameterType2 = java.lang.Integer
+parameterVar2 = 20
