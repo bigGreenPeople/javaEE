@@ -1,5 +1,5 @@
-package com.fj.reflect;
+ï»¿package com.fj.reflect;
 
 public class MyReflect {
-	//·´ÉäÉú³É
+	//åå°„ç”Ÿæˆ
 }
