@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	 <!-- 别的servlet想访问的话这样去配置 -->
+ <context-param>
+ 	<param-name>xxx</param-name>
+ 	<param-value>ffff</param-value>
+ </context-param>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoadServlet</servlet-name>
+    <servlet-class>com.fj.servlet.LoadServlet</servlet-class>
+    <!-- Servlet容器装载Servlet -->
+ 	<!--  <load-on-startup>1</load-on-startup>-->
+ 	<!-- 添加这个servle的参数 -->
+ 	<init-param>
+ 		<param-name>name</param-name>
+ 		<param-value>fujie</param-value> 		
+ 	</init-param>
+ 	
+ 	 		
+  </servlet>
+  <!-- 第二个servlet访问上面的参数 -->
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Servlet2</servlet-name>
+    <servlet-class>com.fj.servlet.Servlet2</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>LoadServlet</servlet-name>
+    <url-pattern>/LoadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet2</servlet-name>
+    <url-pattern>/Servlet2</url-pattern>
+  </servlet-mapping>
+  
+
+
+</web-app>
