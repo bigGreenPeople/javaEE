@@ -1,0 +1,171 @@
+CREATE TABLE tb_manager(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(20),
+pwd VARCHAR(20)
+)
+
+INSERT INTO tb_manager(NAME,pwd) VALUES('付杰','123');
+INSERT INTO tb_manager(NAME,pwd) VALUES('fujie','123');
+
+
+
+CREATE TABLE tb_library(
+id INT PRIMARY KEY AUTO_INCREMENT,
+libraryname VARCHAR(50),
+curator VARCHAR(10),
+tel VARCHAR(20), 
+address VARCHAR(100),
+email VARCHAR(100), 
+url VARCHAR(100), 
+createDate DATE ,
+introduce TEXT
+
+)
+
+INSERT INTO tb_library VALUES(1,'杰氏图书馆','付杰','15079247502','江西南昌','1243596620@qq.com','www.fff.com',CURRENT_DATE(),'这是我的图书馆');
+
+CREATE TABLE tb_purview(
+id INT PRIMARY KEY AUTO_INCREMENT,
+managerid INT REFERENCES Tb_manager(id),
+sysset TINYINT(1), 	
+readerset TINYINT(1), 
+bookset TINYINT(1), 
+borrowback TINYINT(1), 
+sysquery TINYINT(1) 
+
+)
+
+INSERT INTO tb_purview VALUES(1,2,1,1,1,1,1);
+
+CREATE TABLE tb_parameter(
+id INT PRIMARY KEY AUTO_INCREMENT,
+cost INT(10) ,
+validity INT(10)
+
+)
+
+INSERT INTO tb_parameter VALUES(1,50,30);
+
+
+CREATE TABLE tb_readertype(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME  VARCHAR(50) ,
+number INT(4) 
+
+
+)
+
+INSERT INTO tb_readertype VALUES(1,'学生',20);
+INSERT INTO tb_readertype VALUES(2,'教师',30);
+INSERT INTO tb_readertype VALUES(3,'外来人员',10);
+
+CREATE TABLE tb_bookcase(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME  VARCHAR(30) ,
+Column_3 CHAR(10) 
+
+
+)
+
+INSERT INTO tb_bookcase VALUES(1,'A架',NULL);
+INSERT INTO tb_bookcase VALUES(2,'B架',NULL);
+INSERT INTO tb_bookcase VALUES(3,'C架',NULL);
+
+
+CREATE TABLE tb_reader(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME  VARCHAR(30) ,
+sex VARCHAR(2),
+barcode VARCHAR(20),
+vocation VARCHAR(20),
+Birthday DATE,
+paperType VARCHAR(10) ,
+paperNO VARCHAR(20) ,
+tel VARCHAR(20) ,
+email VARCHAR(100) ,
+createDate DATE ,
+operator int REFERENCES tb_manager(id),
+remark TEXT,
+typeid INT REFERENCES tb_readertype(id)
+
+
+)
+
+INSERT INTO tb_reader VALUES(1,'宋江','男','0000001','山贼','1997-07-17','省份证','362432199707171234','15075487452','243596620@qq.com',CURRENT_DATE(),1,'这个图书好',1);
+INSERT INTO tb_reader VALUES(2,'林冲','男','0000002','山贼','1597-02-11','省份证','512412199707171234','15123487452','212345620@qq.com',CURRENT_DATE(),1,'这个图书好',2);
+INSERT INTO tb_reader VALUES(3,'貂蝉','女','0000003','美女','1957-02-07','省份证','235412199707171234','13075487452','243536541@qq.com',CURRENT_DATE(),1,'这个图书好',1);
+
+
+CREATE TABLE tb_booktype(
+id INT PRIMARY KEY AUTO_INCREMENT,
+typename  VARCHAR(30) ,
+days INT(10) 
+
+
+)
+
+INSERT INTO tb_booktype VALUES(1,'计算机类',10);
+INSERT INTO tb_booktype VALUES(2,'建筑类',15);
+INSERT INTO tb_booktype VALUES(3,'外语类',12);
+
+
+CREATE TABLE tb_publishing(
+ISBN VARCHAR(20) PRIMARY KEY,
+pubname VARCHAR(30) 
+)
+
+INSERT INTO tb_publishing VALUES('BS-AN','北京大学出版社');
+INSERT INTO tb_publishing VALUES('DZ-AN','电子出版社');
+INSERT INTO tb_publishing VALUES('NC-AN','南昌出版社');
+
+
+CREATE TABLE tb_bookinfo(
+id INT PRIMARY KEY AUTO_INCREMENT,
+barcode VARCHAR(30),
+bookname VARCHAR(70) ,
+typeid INT(10) 	REFERENCES tb_booktype(id), 
+author VARCHAR(30), 
+translator VARCHAR(30), 
+ISBN VARCHAR(20)  REFERENCES tb_publishing(ISBN),
+price FLOAT(8,2) ,
+page INT(10) ,
+bookcase_id INT(10)  REFERENCES tb_bookcase(id),
+inTime DATE, 
+operator INT REFERENCES tb_manager(id),
+del TINYINT(1) DEFAULT '0'
+
+)
+
+INSERT INTO tb_bookinfo VALUES(1,'B0001','JAVA编程思想',1,'图灵','付杰','BS-AN',20.5,200,1,CURRENT_DATE(),1,0);
+INSERT INTO tb_bookinfo VALUES(2,'B0002','spring',1,'大林','付杰','BS-AN',30,250,1,CURRENT_DATE(),1,0);
+INSERT INTO tb_bookinfo VALUES(3,'B0003','建筑学',2,'高士廉','付杰','BS-AN',50.5,300,2,CURRENT_DATE(),1,0);
+
+
+CREATE TABLE tb_borrow(
+id INT PRIMARY KEY AUTO_INCREMENT,
+readerid INT(10) REFERENCES tb_reader(id),
+bookid INT(10) REFERENCES tb_bookinfo(id),
+borrowTime DATE,
+backTime DATE,
+operator INT  REFERENCES tb_manager(id),
+ifback TINYINT(1) DEFAULT 0
+
+
+)
+
+INSERT INTO tb_borrow VALUES(1,2,2,CURRENT_DATE(),'2017-8-29',1,0);
+INSERT INTO tb_borrow VALUES(2,2,1,CURRENT_DATE(),'2017-8-29',1,0);
+INSERT INTO tb_borrow VALUES(3,3,2,CURRENT_DATE(),'2017-8-29',1,0);
+
+
+CREATE TABLE tb_giveback(
+id INT PRIMARY KEY AUTO_INCREMENT,
+readerid INT(10) REFERENCES tb_reader(id),
+bookid INT(10) REFERENCES tb_bookinfo(id),
+backTime DATE,
+operator INT  REFERENCES tb_manager(id)
+)
+
+INSERT INTO tb_giveback VALUES(1,2,2,'2016-8-29',1);
+INSERT INTO tb_giveback VALUES(2,2,1,'2016-8-29',1);
+INSERT INTO tb_giveback VALUES(3,3,2,'2016-8-29',1);

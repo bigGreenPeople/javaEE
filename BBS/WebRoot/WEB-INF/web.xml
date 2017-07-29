@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.view.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginClServlet</servlet-name>
+    <servlet-class>com.controller.LoginClServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MainFrame</servlet-name>
+    <servlet-class>com.view.MainFrame</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ManageUsers</servlet-name>
+    <servlet-class>com.view.ManageUsers</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserClServlet</servlet-name>
+    <servlet-class>com.controller.UserClServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OK</servlet-name>
+    <servlet-class>com.view.OK</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Err</servlet-name>
+    <servlet-class>com.view.Err</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateUserView</servlet-name>
+    <servlet-class>com.view.UpdateUserView</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdddateUser</servlet-name>
+    <servlet-class>com.view.AdddateUser</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LookUserView</servlet-name>
+    <servlet-class>com.view.LookUserView</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CreateCode</servlet-name>
+    <servlet-class>com.util.CreateCode</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.util.InitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MyFilter</servlet-name>
+    <servlet-class>com.controller.MyFilter</servlet-class>
+  </servlet>
+
+
+  <filter>
+  	<filter-name>MyFilter</filter-name>
+  	<filter-class>com.controller.MyFilter</filter-class>
+  </filter>
+<filter-mapping>
+	<filter-name>MyFilter</filter-name>
+	<url-pattern>/*</url-pattern>  
+</filter-mapping>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginClServlet</servlet-name>
+    <url-pattern>/LoginClServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MainFrame</servlet-name>
+    <url-pattern>/MainFrame</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ManageUsers</servlet-name>
+    <url-pattern>/ManageUsers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserClServlet</servlet-name>
+    <url-pattern>/UserClServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OK</servlet-name>
+    <url-pattern>/OK</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Err</servlet-name>
+    <url-pattern>/Err</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateUserView</servlet-name>
+    <url-pattern>/UpdateUserView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdddateUser</servlet-name>
+    <url-pattern>/AdddateUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LookUserView</servlet-name>
+    <url-pattern>/LookUserView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CreateCode</servlet-name>
+    <url-pattern>/CreateCode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InitServlet</servlet-name>
+    <url-pattern>/InitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MyFilter</servlet-name>
+    <url-pattern>/MyFilter</url-pattern>
+  </servlet-mapping>
+ 
+
+</web-app>
