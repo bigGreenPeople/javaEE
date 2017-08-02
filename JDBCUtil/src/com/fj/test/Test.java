@@ -42,9 +42,9 @@ public class Test {
 			//开启事务
 			JdbcUtils.beginTransaction();
 			//对数据进行操作
-			bookCaseDao.updBookCase(2, 10);
+			bookCaseDao.updBookCase(2, -10);
 			int i = 2/0;
-			bookCaseDao.updBookCase(3, -20);
+			bookCaseDao.updBookCase(3, 20);
 			//提交事务
 			JdbcUtils.commitTransaction();
 			
