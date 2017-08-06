@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="userForm" type="com.fj.struts.form.UserForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+    <forward name="err" path="/WEB-INF/err.jsp" />
+
+  </global-forwards>
+
+  <action-mappings >
+    <action
+      attribute="userForm"
+      input="/WEB-INF/register.jsp"
+      name="userForm"
+      path="/register"
+      scope="request"
+      type="com.fj.struts.action.RegisterAction"
+      validate="false"
+      cancellable="true" >
+      <forward name="ok" path="/WEB-INF/userFrame.jsp" />
+    </action>
+    <action
+      input="/WEB-INF/userFrame.jsp"
+      path="/userList"
+      type="com.fj.struts.action.UserListAction"
+      cancellable="true" >
+      <forward name="gotoUserList" path="/WEB-INF/usersList.jsp" />
+    </action>
+    <action
+      input="/WEB-INF/usersList.jsp"
+      path="/downFile"
+      type="com.fj.struts.action.DownFileAction"
+      cancellable="true" >
+      <forward name="downOk" path="/WEB-INF/usersList.jsp" />
+    </action>
+
+
+
+
+  </action-mappings>
+
+  <message-resources parameter="com.fj.struts.ApplicationResources" />
+</struts-config>
+
