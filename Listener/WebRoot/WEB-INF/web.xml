@@ -16,7 +16,11 @@
   </servlet-mapping>
 	
 	<!-- 配置监听器 -->
-	<listener>
-		<listener-class>com.fj.listener.MyListener</listener-class>
+	<!--<listener>
+		<listener-class>com.fj.listener.MyListener</listener-class>	
 	</listener>
+	 <listener>
+		<listener-class>com.fj.listener.MyHttpSessionAttrListener</listener-class>
+	</listener> -->
+	
 </web-app>
