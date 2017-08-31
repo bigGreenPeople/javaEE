@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        	<!-- 简单控制器处理适配器 指定了实现Controller 作为后端控制器 -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+	<!-- HttpRequest的适配器  指定实现HttpRequestHandler 作为后端控制器-->
+	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
+	
+	<!-- 配置处理器映射器 用来判断url访问哪个Handler -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	</bean>
+	<!-- 使用简单处理器映射器 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/item2.action">itemList1</prop>
+				<prop key="/item3.action">itemList1</prop>
+				<prop key="/item3.action">itemList2</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- name就是访问的url -->
+	<bean name="/item1.action" id="itemList1" class="com.fj.controller.ItemList1">
+	</bean>
+	<bean id="itemList2" class="com.fj.controller.ItemList2"></bean>
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	</bean>
+	
+</beans>
